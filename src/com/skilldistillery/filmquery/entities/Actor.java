@@ -3,23 +3,23 @@ package com.skilldistillery.filmquery.entities;
 import java.util.List;
 import java.util.Objects;
 
-public class ActorEntity {
+public class Actor {
 	private int id;
 	private String firstName;
 	private String lastName;
 	private List<Film> films;
 
-	public ActorEntity() {
+	public Actor() {
 	}
 
-	public ActorEntity(int id, String firstName, String lastName) {
+	public Actor(int id, String firstName, String lastName) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 	}
 
-	public ActorEntity(String firstName, String lastName) {
+	public Actor(String firstName, String lastName) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -59,7 +59,7 @@ public class ActorEntity {
 
 	@Override
 	public String toString() {
-		return "ActorEntity [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "\n Actor Id: " + id + " First Name: " + firstName + " Last Name: " + lastName;
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public class ActorEntity {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ActorEntity other = (ActorEntity) obj;
+		Actor other = (Actor) obj;
 		return Objects.equals(firstName, other.firstName) && id == other.id && Objects.equals(lastName, other.lastName);
 	}
 
