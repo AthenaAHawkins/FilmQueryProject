@@ -43,7 +43,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			film.setRelease_year(filmResult.getInt("release_year"));
 			film.setRating(filmResult.getString("rating"));
 			film.setDescription(filmResult.getString("description"));
-
 			film.setActors(findActorsByFilmId(filmId));
 			System.out.println();
 
@@ -166,7 +165,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		try {
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 
-			String sql = "SELECT film.* , language.name FROM film Join language ON film.language_id = language.id WHERE film.title LIKE ? OR film.description LIKE ?";
+			String sql = "SELECT film.* , language.name FROM film Join language ON film.language_id = language.id "
+					+ "WHERE film.title LIKE ? OR film.description LIKE ?";
 			PreparedStatement prepstmt = conn.prepareStatement(sql);
 			prepstmt.setString(1, "%" + keyWord + "%");
 			prepstmt.setString(2, "%" + keyWord + "%");
@@ -183,9 +183,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 				Film film = new Film(id,filmName, description,released,language,rating);
 				film.setActors(findActorsByFilmId(id));
 				
-				
-				
 				films.add(film);
+				
 			}
 			System.out.println(films);
 			filmresult.close();

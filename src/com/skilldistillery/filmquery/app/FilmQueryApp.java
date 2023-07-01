@@ -52,7 +52,12 @@ public class FilmQueryApp {
 				System.out.println();
 				System.out.println("Please enter a keyword");
 				String keyWordSelect = input.next();
+				if (db.findByKeyWord(keyWordSelect).size() == 0 ) {
+					System.out.println("Thats so fetch stop trying to make " + keyWordSelect + 
+							" happen, its not going to happen");
+				}else {
 				db.findByKeyWord(keyWordSelect);
+				}
 
 			} else if (choice == 3) {
 				System.out.println("Goodbye");

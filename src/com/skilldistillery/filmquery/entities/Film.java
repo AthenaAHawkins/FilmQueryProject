@@ -201,7 +201,7 @@ public class Film {
 	@Override
 	public String toString() {
 		return "\n\n Film Id: " + id + "\n Movie Title: " + title + "\n Rating: "+ rating + "\n Description: " + description +
-				"\n Release year: " + release_year +  " Language: " + language
+				"\n Release year: " + release_year +  " \nLanguage: " + language
 				+ "\n Actors: " + actors + "\n";
 	}
 
